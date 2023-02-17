@@ -13,3 +13,4 @@ Next steps:
   - multicast sockets passing data between each other
   - using queue
 - compare current implementation to my small example
+- how to debug asyncio
