@@ -14,3 +14,15 @@ Next steps:
   - using queue
 - compare current implementation to my small example
 - how to debug asyncio
+
+---
+
+- Is there any reason why we are using `threading` (pre-emptive multitasking) in input session, while everything else is based on `asyncio` (cooperative multitasking)?
+- Argument 2: if the argument is that reader thread is required to always be active, then threading does not provide this? It is concurrency, not parallelism.
+
+- Debugging-related
+  - It works if done without loop.call_soon_threadsafe
+    - checked with unit test
+  - All packets are sent in both cases
+    - checked with wireshark
+  - The issue seems to be that the task passed to call_soon_threadsafe never gets executed.
